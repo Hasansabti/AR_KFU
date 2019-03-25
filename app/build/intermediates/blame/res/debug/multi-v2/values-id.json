@@ -1,0 +1,60 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\AR_Navigation-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-id\\values-id.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\student\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.6.0.aar\\eda00d06fe099dbf3a220b9903430ff9\\res\\values-id\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8",
+                        "startColumns": "0,0,0,0,0",
+                        "startOffsets": "190,236,288,379,471",
+                        "endColumns": "45,51,90,91,62",
+                        "endOffsets": "235,287,378,470,533"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "55,105,161,256,352",
+                        "endColumns": "49,55,94,95,66",
+                        "endOffsets": "100,156,251,347,414"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\student\\.gradle\\caches\\transforms-1\\files-1.1\\mapbox-android-navigation-ui-0.28.0.aar\\e9f0cbcc1da19b81a45e2c856c1ade63\\res\\values-id\\values-id.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,105,157",
+                        "endColumns": "49,51,52",
+                        "endOffsets": "100,152,205"
+                    },
+                    "to": {
+                        "startLines": "8,9,10",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "477,527,579",
+                        "endColumns": "49,51,52",
+                        "endOffsets": "522,574,627"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\student\\.gradle\\caches\\transforms-1\\files-1.1\\mapbox-android-navigation-0.28.0.aar\\b6696a578989850c0d70fcd2d5ecaeac\\res\\values-id\\values-id.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "57",
+                        "endOffsets": "108"
+                    },
+                    "to": {
+                        "startLines": "7",
+                        "startColumns": "4",
+                        "startOffsets": "419",
+                        "endColumns": "57",
+                        "endOffsets": "472"
+                    }
+                }
+            ]
+        }
+    ]
+}
