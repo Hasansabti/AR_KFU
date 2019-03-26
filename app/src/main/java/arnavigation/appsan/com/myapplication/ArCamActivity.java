@@ -128,7 +128,7 @@ public class ArCamActivity extends FragmentActivity implements GoogleApiClient.C
 
         Log.d(TAG, "Configure_AR: LOCATION" + mLastLocation.getLatitude() + " " + mLastLocation.getLongitude());
         //set default arrow image
-        world.setDefaultImage(R.drawable.ar_sphere_default);
+        world.setDefaultImage(R.drawable.arright);
 
         //Select the AR fragment from the interface
         arFragmentSupport = (ArFragmentSupport) getSupportFragmentManager().findFragmentById(
@@ -206,8 +206,8 @@ signObject.setName("Right");
         for (int j = 0; j < polylineLatLng.size(); j++) {
             for (int k = 0; k < polylineLatLng.get(j).size(); k++) {
                 GeoObject polyGeoObj = new GeoObject(1000 + temp_polycount++);
-                int pointing = R.drawable.ar_sphere_150x;
-                int pointing2 = R.drawable.ar_sphere_default_125x;
+                int pointing = R.drawable.arleft;
+                int pointing2 = R.drawable.arleft;
 
                 polyGeoObj.setGeoPosition(polylineLatLng.get(j).get(k).latitude,
                         polylineLatLng.get(j).get(k).longitude);
@@ -281,10 +281,10 @@ signObject.setName("Right");
                                         , polylineLatLng.get(j).get(k + 1).longitude));
                                 if (hdg >= 0) {
                                     //TODO Heading to positive direction, show propper arrows pointing right
-                                    pointing2 = R.drawable.ar_sphere_default_right_125x;
+                                    pointing2 = R.drawable.arright;
                                 } else {
                                     //TODO Heading to negative direction, show propper arrows pointing left
-                                    pointing2 = R.drawable.ar_sphere_default_125x;
+                                    pointing2 = R.drawable.arleft;
                                 }
                             }
 
