@@ -97,6 +97,7 @@ public class PoiBrowserActivity extends AppCompatActivity {
                                 locationScene = new LocationScene(getApplicationContext(), myac, arSceneView);
                                 locationScene.setOffsetOverlapping(true);
                                 locationScene.setAnchorRefreshInterval(11190);
+                                locationScene.setBearingAdjustment(locationScene.getBearingAdjustment()-1);
 
                                 //loop for all the added POIs
                                 for (final MyMarker m : pois) {
@@ -180,6 +181,7 @@ public class PoiBrowserActivity extends AppCompatActivity {
                             }
 
                             if (locationScene != null) {
+
                                 locationScene.processFrame(frame);
                             }
 
@@ -226,6 +228,7 @@ public class PoiBrowserActivity extends AppCompatActivity {
 
         if (locationScene != null) {
             locationScene.resume();
+
         }
 
         if (arSceneView.getSession() == null) {

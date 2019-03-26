@@ -1375,14 +1375,8 @@ drawable amu_bubble_mask
 drawable amu_bubble_shadow
 drawable annotation
 drawable ar_object
-drawable ar_sphere
-drawable ar_sphere_150x
-drawable ar_sphere_default
-drawable ar_sphere_default_125x
-drawable ar_sphere_default_right_125x
-drawable ar_sphere_right
-drawable ar_sphere_right_150x
-drawable ar_sphere_right_default
+drawable arleft
+drawable arright
 drawable avd_hide_password
 drawable avd_show_password
 drawable avd_spotlight_arc

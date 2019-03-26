@@ -515,15 +515,15 @@ public final class R {
         public static final int abc_textfield_search_default_mtrl_alpha = 0x7f080058;
         public static final int abc_textfield_search_material = 0x7f080059;
         public static final int abc_vector_test = 0x7f08005a;
-        public static final int ic_arrow_back_white = 0x7f08009b;
-        public static final int ic_arrow_forward_white = 0x7f08009c;
-        public static final int ic_done_white = 0x7f0800a6;
-        public static final int ic_navigate_before_white = 0x7f0800dd;
-        public static final int ic_navigate_next_white = 0x7f0800de;
-        public static final int ic_skip_white = 0x7f0800e6;
-        public static final int indicator_dot_grey = 0x7f0800ed;
-        public static final int indicator_dot_white = 0x7f0800ee;
-        public static final int notification_template_icon_bg = 0x7f080124;
+        public static final int ic_arrow_back_white = 0x7f080095;
+        public static final int ic_arrow_forward_white = 0x7f080096;
+        public static final int ic_done_white = 0x7f0800a0;
+        public static final int ic_navigate_before_white = 0x7f0800d7;
+        public static final int ic_navigate_next_white = 0x7f0800d8;
+        public static final int ic_skip_white = 0x7f0800e0;
+        public static final int indicator_dot_grey = 0x7f0800e7;
+        public static final int indicator_dot_white = 0x7f0800e8;
+        public static final int notification_template_icon_bg = 0x7f08011e;
     }
     public static final class id {
         private id() {}
