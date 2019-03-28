@@ -12,12 +12,12 @@ public final class R {
     public static final class anim {
         private anim() {}
 
-        public static final int fab_scale_down = 0x7f010010;
-        public static final int fab_scale_up = 0x7f010011;
-        public static final int fab_slide_in_from_left = 0x7f010012;
-        public static final int fab_slide_in_from_right = 0x7f010013;
-        public static final int fab_slide_out_to_left = 0x7f010014;
-        public static final int fab_slide_out_to_right = 0x7f010015;
+        public static final int fab_scale_down = 0x7f010011;
+        public static final int fab_scale_up = 0x7f010012;
+        public static final int fab_slide_in_from_left = 0x7f010013;
+        public static final int fab_slide_in_from_right = 0x7f010014;
+        public static final int fab_slide_out_to_left = 0x7f010015;
+        public static final int fab_slide_out_to_right = 0x7f010016;
     }
     public static final class attr {
         private attr() {}
@@ -92,7 +92,7 @@ public final class R {
     public static final class drawable {
         private drawable() {}
 
-        public static final int fab_add = 0x7f080089;
+        public static final int fab_add = 0x7f08008a;
     }
     public static final class id {
         private id() {}
@@ -104,11 +104,11 @@ public final class R {
         public static final int marquee = 0x7f0900bf;
         public static final int middle = 0x7f0900c3;
         public static final int mini = 0x7f0900c4;
-        public static final int none = 0x7f0900d0;
-        public static final int normal = 0x7f0900d1;
-        public static final int right = 0x7f090109;
-        public static final int start = 0x7f090151;
-        public static final int up = 0x7f090187;
+        public static final int none = 0x7f0900d1;
+        public static final int normal = 0x7f0900d2;
+        public static final int right = 0x7f09010b;
+        public static final int start = 0x7f090153;
+        public static final int up = 0x7f090189;
     }
     public static final class styleable {
         private styleable() {}

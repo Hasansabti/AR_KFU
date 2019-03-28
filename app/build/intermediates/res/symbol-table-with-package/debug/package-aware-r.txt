@@ -11,6 +11,7 @@ anim abc_slide_out_bottom
 anim abc_slide_out_top
 anim abc_tooltip_enter
 anim abc_tooltip_exit
+anim bounce
 anim design_bottom_sheet_slide_in
 anim design_bottom_sheet_slide_out
 anim design_snackbar_in
@@ -1415,6 +1416,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable dest_icon
 drawable directions
 drawable fab_add
 drawable feedback_bottomsheet_background
@@ -1810,6 +1812,7 @@ id navigationLayout
 id navigationMapView
 id navigationView
 id navigation_header_container
+id navloading
 id never
 id next
 id none
@@ -1860,6 +1863,7 @@ id poi_place_detail
 id poi_place_image
 id poi_place_maps_direction
 id poi_place_name
+id poiloading
 id progressBar_maps
 id progress_bar_place
 id progress_circular
@@ -1999,6 +2003,7 @@ id up
 id useLogo
 id username_text_input_layout
 id view
+id view2
 id view_offset_helper
 id view_pager
 id visible

@@ -96,7 +96,7 @@
             app:fab_colorPressed="#630073"
             app:fab_colorRipple="#e45cfa"
             app:fab_label="POI Browser"
-            android:visibility="gone"
+            android:visibility="visible"
             app:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton

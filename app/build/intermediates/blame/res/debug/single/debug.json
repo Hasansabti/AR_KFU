@@ -1348,6 +1348,10 @@
         "source": "C:\\Users\\student\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\26cbf3d84d693c9ff6645dc53d8d8481\\res\\layout-v26\\abc_screen_toolbar.xml"
     },
     {
+        "merged": "D:\\AR_Navigation-master\\app\\build\\intermediates\\res\\merged\\debug\\anim_bounce.xml.flat",
+        "source": "D:\\AR_Navigation-master\\app\\src\\main\\res\\anim\\bounce.xml"
+    },
+    {
         "merged": "D:\\AR_Navigation-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_expanded_menu_layout.xml.flat",
         "source": "C:\\Users\\student\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\26cbf3d84d693c9ff6645dc53d8d8481\\res\\layout\\abc_expanded_menu_layout.xml"
     },
@@ -3990,6 +3994,10 @@
     {
         "merged": "D:\\AR_Navigation-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_discount.png.flat",
         "source": "D:\\AR_Navigation-master\\app\\src\\main\\res\\drawable-xxhdpi\\ic_discount.png"
+    },
+    {
+        "merged": "D:\\AR_Navigation-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_dest_icon.png.flat",
+        "source": "D:\\AR_Navigation-master\\app\\src\\main\\res\\drawable-v24\\dest_icon.png"
     },
     {
         "merged": "D:\\AR_Navigation-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_mapbox_activity_autocomplete.xml.flat",
