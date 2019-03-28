@@ -50,6 +50,7 @@ dependencies {
 
     implementation 'com.mapbox.mapboxsdk:mapbox-android-navigation-ui:0.28.0'
     implementation 'com.mapbox.mapboxsdk:mapbox-android-plugin-places-v7:0.7.0'
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:7.2.0'
 
     // implementation 'com.google.android.gms:play-services:16.0.1'
     implementation 'com.github.wooplr:Spotlight:1.2.3'

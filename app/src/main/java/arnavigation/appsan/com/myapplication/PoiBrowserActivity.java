@@ -106,7 +106,7 @@ public class PoiBrowserActivity extends AppCompatActivity {
                                 for (final MyMarker m : pois) {
 
                                     LocationMarker lm = new LocationMarker(m.getLonge(), m.getLat(), m.getTheView(getApplicationContext()));
-                                   lm.setOnlyRenderWhenWithin(200);
+                                   lm.setOnlyRenderWhenWithin(400);
 
                                     if (m.getLayoutRenderable() != null)
                                         m.getLayoutRenderable().getView().setOnClickListener(new View.OnClickListener() {
@@ -171,7 +171,7 @@ public class PoiBrowserActivity extends AppCompatActivity {
 
                                  float bear = loc.currentBestLocation.bearingTo(lastloc.currentBestLocation);
                                  //TODO adjust bearing here
-
+//locationScene.setBearingAdjustment();
 
 
 

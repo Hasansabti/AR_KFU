@@ -4,23 +4,6 @@
             "outputFile": "D:\\AR_Navigation-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ko\\values-ko.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\student\\.gradle\\caches\\transforms-1\\files-1.1\\mapbox-android-sdk-7.1.0.aar\\c20c6454045d009d48f237af189d99ec\\res\\values-ko\\values-ko.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,154,269,337,405,472,549,628,719,807,936,1031,1141",
-                        "endColumns": "98,114,67,67,66,76,78,90,87,128,94,109,61",
-                        "endOffsets": "149,264,332,400,467,544,623,714,802,931,1026,1136,1198"
-                    },
-                    "to": {
-                        "startLines": "68,69,70,71,72,73,74,75,76,77,78,79,80",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "6323,6422,6537,6605,6673,6740,6817,6896,6987,7075,7204,7299,7409",
-                        "endColumns": "98,114,67,67,66,76,78,90,87,128,94,109,61",
-                        "endOffsets": "6417,6532,6600,6668,6735,6812,6891,6982,7070,7199,7294,7404,7466"
-                    }
-                },
-                {
                     "source": "C:\\Users\\student\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.6.0.aar\\eda00d06fe099dbf3a220b9903430ff9\\res\\values-ko\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8",
@@ -86,6 +69,23 @@
                         "startOffsets": "4112",
                         "endColumns": "179",
                         "endOffsets": "4287"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\student\\.gradle\\caches\\transforms-1\\files-1.1\\mapbox-android-sdk-7.2.0.aar\\e59dee01ba098e188a7b724a5cc020ae\\res\\values-ko\\values-ko.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,154,269,337,405,472,549,628,719,807,936,1031,1141",
+                        "endColumns": "98,114,67,67,66,76,78,90,87,128,94,109,61",
+                        "endOffsets": "149,264,332,400,467,544,623,714,802,931,1026,1136,1198"
+                    },
+                    "to": {
+                        "startLines": "68,69,70,71,72,73,74,75,76,77,78,79,80",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "6323,6422,6537,6605,6673,6740,6817,6896,6987,7075,7204,7299,7409",
+                        "endColumns": "98,114,67,67,66,76,78,90,87,128,94,109,61",
+                        "endOffsets": "6417,6532,6600,6668,6735,6812,6891,6982,7070,7199,7294,7404,7466"
                     }
                 },
                 {

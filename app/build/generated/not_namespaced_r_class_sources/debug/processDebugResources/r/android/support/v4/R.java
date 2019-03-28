@@ -31,8 +31,8 @@ public final class R {
         public static final int layout_dodgeInsetEdges = 0x7f04016b;
         public static final int layout_insetEdge = 0x7f040174;
         public static final int layout_keyline = 0x7f040175;
-        public static final int statusBarBackground = 0x7f040269;
-        public static final int ttcIndex = 0x7f0402cb;
+        public static final int statusBarBackground = 0x7f04026a;
+        public static final int ttcIndex = 0x7f0402cc;
     }
     public static final class color {
         private color() {}
@@ -189,7 +189,7 @@ public final class R {
         public static final int ColorStateListItem_android_color = 0;
         public static final int ColorStateListItem_android_alpha = 1;
         public static final int ColorStateListItem_alpha = 2;
-        public static final int[] CoordinatorLayout = { 0x7f040134, 0x7f040269 };
+        public static final int[] CoordinatorLayout = { 0x7f040134, 0x7f04026a };
         public static final int CoordinatorLayout_keylines = 0;
         public static final int CoordinatorLayout_statusBarBackground = 1;
         public static final int[] CoordinatorLayout_Layout = { 0x10100b3, 0x7f04013d, 0x7f04013e, 0x7f04013f, 0x7f04016b, 0x7f040174, 0x7f040175 };
@@ -207,7 +207,7 @@ public final class R {
         public static final int FontFamily_fontProviderFetchTimeout = 3;
         public static final int FontFamily_fontProviderPackage = 4;
         public static final int FontFamily_fontProviderQuery = 5;
-        public static final int[] FontFamilyFont = { 0x1010532, 0x1010533, 0x101053f, 0x101056f, 0x1010570, 0x7f0400fc, 0x7f040104, 0x7f040105, 0x7f040106, 0x7f0402cb };
+        public static final int[] FontFamilyFont = { 0x1010532, 0x1010533, 0x101053f, 0x101056f, 0x1010570, 0x7f0400fc, 0x7f040104, 0x7f040105, 0x7f040106, 0x7f0402cc };
         public static final int FontFamilyFont_android_font = 0;
         public static final int FontFamilyFont_android_fontWeight = 1;
         public static final int FontFamilyFont_android_fontStyle = 2;
