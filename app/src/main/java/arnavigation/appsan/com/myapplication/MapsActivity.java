@@ -25,7 +25,7 @@ import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
+
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
@@ -37,6 +37,11 @@ import com.mapbox.api.geocoding.v5.MapboxGeocoding;
 import com.mapbox.api.geocoding.v5.models.CarmenFeature;
 import com.mapbox.api.geocoding.v5.models.GeocodingResponse;
 import com.mapbox.geojson.Point;
+import com.mapbox.mapboxsdk.Mapbox;
+import com.mapbox.mapboxsdk.maps.MapView;
+import com.mapbox.mapboxsdk.maps.MapboxMap;
+import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
+import com.mapbox.mapboxsdk.maps.Style;
 
 import java.util.List;
 
@@ -49,8 +54,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, OnConnectionFailedListener
-        , ConnectionCallbacks, GoogleMap.OnMapLongClickListener, GoogleMap.OnMapClickListener {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
+        {
 
     private final static String TAG = "MapsActivity";
 
@@ -63,7 +68,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
   //  private Location location;
 
     private Marker RevMarker;
-
+    private MapView mapView;
     @BindView(R.id.fab_menu_btn)
     FloatingActionMenu fab_menu;
     @BindView(R.id.ar_nav_btn)
@@ -81,6 +86,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Mapbox Access token
+        Mapbox.getInstance(getApplicationContext(), getString(R.string.mapbox_access_token));
+
         setContentView(R.layout.activity_maps);
 
         // Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
@@ -104,13 +112,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
         //initialize google API
-        if (googleApiClient == null) {
-            googleApiClient = new GoogleApiClient.Builder(this)
-                    .addApi(LocationServices.API)
-                    .addConnectionCallbacks(this)
-                    .addOnConnectionFailedListener(this)
-                    .build();
-        }
+       // if (googleApiClient == null) {
+        //    googleApiClient = new GoogleApiClient.Builder(this)
+       ////             .addApi(LocationServices.API)
+        //            .addConnectionCallbacks(this)
+        //            .addOnConnectionFailedListener(this)
+        //            .build();
+       // }
 
 
         //Navigation button (Opens the select navigation mode where user selects the start and end locations)
@@ -152,9 +160,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         });
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+      //  SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+       //         .findFragmentById(R.id.map);
+      //  mapFragment.getMapAsync(this);
+
+
+
+        mapView = (MapView) findViewById(R.id.mapView);
+        mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync(this);
+
+
+
 
     }
 
@@ -351,7 +368,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-
+/*
     @Override
     public void onMapLongClick(LatLng latLng) {
 
@@ -360,7 +377,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Toast.makeText(this, latLng.latitude + " " + latLng.longitude, Toast.LENGTH_SHORT).show();
         Rev_Geocode_Call(latLng);
     }
-
+*/
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -371,8 +388,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * installed Google Play services and returned to the app.
      */
     @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+    public void onMapReady(MapboxMap mapboxMap) {
+        mapboxMap.setStyle(new Style.Builder().fromUrl("mapbox://styles/hasbti/cjsczomgr06cc1fpqub3v4j2c"), new Style.OnStyleLoaded() {
+            @Override
+            public void onStyleLoaded(@NonNull Style style) {
+
+
+            }
+        });
+        /*
+      //  mMap = googleMap;
 
         try {
             // Customise the styling of the base map using a JSON object defined
@@ -397,40 +422,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mMap.setMinZoomPreference(15);
         //mMap.setOnMapClickListener(this);
+        */
+
+
+
         Log.d(TAG, "onMapReady: MAP IS READY");
 
     }
 
     @Override
     protected void onStart() {
-        googleApiClient.connect();
+       // googleApiClient.connect();
+        mapView.onStart();
         super.onStart();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        googleApiClient.disconnect();
+        //googleApiClient.disconnect();
+        mapView.onStop();
     }
 
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
-    }
-
-    @Override
-    public void onConnected(@Nullable Bundle bundle) {
-        //PermissionCheck.initialPermissionCheck(this,this);
-
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-
-    }
-
-    @Override
-    public void onMapClick(LatLng latLng) {
-        Log.d(TAG, "onMapClick: Short Click " + latLng.toString());
-    }
 }

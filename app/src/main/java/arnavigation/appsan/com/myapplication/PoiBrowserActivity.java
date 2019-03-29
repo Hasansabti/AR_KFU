@@ -30,6 +30,7 @@ import uk.co.appoly.arcorelocation.LocationMarker;
 import uk.co.appoly.arcorelocation.LocationScene;
 import uk.co.appoly.arcorelocation.rendering.LocationNode;
 import uk.co.appoly.arcorelocation.rendering.LocationNodeRender;
+import uk.co.appoly.arcorelocation.sensor.DeviceLocation;
 import uk.co.appoly.arcorelocation.utils.ARLocationPermissionHelper;
 import uk.co.appoly.arcorelocation.utils.LocationUtils;
 
@@ -54,6 +55,8 @@ public class PoiBrowserActivity extends AppCompatActivity {
     private DirectionsRoute currentRoute;
     private static final String TAG = "DirectionsActivity";
     PoiBrowserActivity myac;
+
+    DeviceLocation lastloc;
 
     @Override
     @SuppressWarnings({"AndroidApiChecker", "FutureReturnValueIgnored"})
@@ -97,13 +100,13 @@ public class PoiBrowserActivity extends AppCompatActivity {
                                 locationScene = new LocationScene(getApplicationContext(), myac, arSceneView);
                                 locationScene.setOffsetOverlapping(true);
                                 locationScene.setAnchorRefreshInterval(11190);
-                                locationScene.setBearingAdjustment(locationScene.getBearingAdjustment()-1);
+                                locationScene.setBearingAdjustment(locationScene.getBearingAdjustment()-10);
 
                                 //loop for all the added POIs
                                 for (final MyMarker m : pois) {
 
                                     LocationMarker lm = new LocationMarker(m.getLonge(), m.getLat(), m.getTheView(getApplicationContext()));
-                                   lm.setOnlyRenderWhenWithin(200);
+                                   lm.setOnlyRenderWhenWithin(400);
 
                                     if (m.getLayoutRenderable() != null)
                                         m.getLayoutRenderable().getView().setOnClickListener(new View.OnClickListener() {
@@ -157,6 +160,24 @@ public class PoiBrowserActivity extends AppCompatActivity {
 
 
                             }else{
+
+                                //get the direction of the device based on two points
+                                DeviceLocation loc = locationScene.deviceLocation;
+                                if(lastloc == null){
+                                    lastloc = loc;
+                                }
+
+                                if(loc.currentBestLocation.distanceTo(lastloc.currentBestLocation) > 20){
+
+                                 float bear = loc.currentBestLocation.bearingTo(lastloc.currentBestLocation);
+                                 //TODO adjust bearing here
+//locationScene.setBearingAdjustment();
+
+
+
+                                        lastloc = loc;
+
+                                }
                                 /*
                                 for (final LocationMarker m : locationScene.mLocationMarkers) {
                                      if (LocationUtils.distance(m.latitude,this.locationScene.deviceLocation.currentBestLocation.getLatitude(),m.longitude,this.locationScene.deviceLocation.currentBestLocation.getLongitude(),0.0D, 0.0D) > 200) {

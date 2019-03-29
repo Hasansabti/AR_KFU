@@ -14,12 +14,16 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.beyondar.android.opengl.texture.Texture;
 import com.beyondar.android.util.location.BeyondarLocationManager;
-import com.beyondar.android.world.BeyondarObject;
+
 import com.beyondar.android.world.GeoObject;
 import com.beyondar.android.world.World;
 import com.google.android.gms.common.ConnectionResult;
@@ -60,7 +64,7 @@ public class ArCamActivity extends FragmentActivity implements GoogleApiClient.C
     @BindView(R.id.speed)
     TextView speed;
 
-    private ArrayList<MyMarker> pois = new ArrayList<>();
+
     //Points with coordinates taken from Google maps
 
 
@@ -90,7 +94,9 @@ public class ArCamActivity extends FragmentActivity implements GoogleApiClient.C
         poibtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),PoiBrowserActivity.class);
+                ProgressBar bp = findViewById(R.id.poiloading);
+                bp.setVisibility(View.VISIBLE);
+                Intent intent = new Intent(getApplicationContext(), PoiBrowserActivity.class);
                 startActivity(intent);
                 finish();
 
@@ -162,7 +168,7 @@ public class ArCamActivity extends FragmentActivity implements GoogleApiClient.C
             //if the point is the last point on the path
             if (i == steps.length - 1) {
                 GeoObject signObject = new GeoObject(10000 + i);
-                signObject.setImageResource(R.drawable.stop);
+                signObject.setImageResource(R.drawable.dest_icon);
                 //calculate the location of the last point of the path
                 LatLng latlng = SphericalUtil.computeOffset(
                         new LatLng(steps[i].intersections().get(steps[i].intersections().size() - 1).location().latitude(), steps[i].intersections().get(steps[i].intersections().size() - 1).location().longitude()),
@@ -179,7 +185,7 @@ public class ArCamActivity extends FragmentActivity implements GoogleApiClient.C
             if (instructions.contains("right")) {
                 Log.d(TAG, "Configure_AR: " + instructions);
                 GeoObject signObject = new GeoObject(10000 + i);
-signObject.setName("Right");
+                signObject.setName("Right");
                 signObject.setImageResource(R.drawable.turn_right);
                 signObject.setGeoPosition(steps[i].intersections().get(0).location().latitude(), steps[i].intersections().get(0).location().longitude());
                 world.addBeyondarObject(signObject);
@@ -292,6 +298,8 @@ signObject.setName("Right");
                             //Set the Geoposition along with image and name
                             inter_polyGeoObj.setGeoPosition(tempLatLng.latitude, tempLatLng.longitude);
                             inter_polyGeoObj.setImageResource(pointing2);
+                        //    inter_polyGeoObj.setAngle(90,0,0);
+
                             inter_polyGeoObj.setName("inter_arObj" + j + k + i);
 
                             //Log.d(TAG, "Configure_AR: LOC: k="+k+" "+ inter_polyGeoObj.getLatitude() + "," + inter_polyGeoObj.getLongitude());
@@ -333,7 +341,7 @@ signObject.setName("Right");
     }
 
     private void Directions_call() {
-//get navigation from mapbox
+        //Start navigation from mapbox
         NavigationRoute.builder(getApplicationContext())
                 .accessToken(getString(R.string.mapbox_access_token))
 
@@ -343,25 +351,25 @@ signObject.setName("Right");
                 .getRoute(new Callback<DirectionsResponse>() {
                     @Override
                     public void onResponse(Call<DirectionsResponse> call, Response<DirectionsResponse> response) {
-//Receive the path information
+                        //Receive the path information
                         DirectionsResponse directionsResponse = response.body();
                         int step_array_size = directionsResponse.routes().get(0).legs().get(0).steps().size();
-//display the distance
+                        //display the distance
                         dirDistance.setVisibility(View.VISIBLE);
                         dirDistance.setText(directionsResponse.routes().get(0).legs().get(0)
                                 .distance().toString());
-//display the time duration
+                        //display the time duration
                         dirTime.setVisibility(View.VISIBLE);
                         dirTime.setText(directionsResponse.routes().get(0).legs().get(0)
                                 .duration().toString());
-//store all the steps from Mapbox in an array
+                        //store all the steps from Mapbox in an array
                         steps = new LegStep[step_array_size];
                         for (int i = 0; i < step_array_size; i++) {
                             steps[i] = directionsResponse.routes().get(0).legs().get(0).steps().get(i);
                             Log.d(TAG, "onResponse: STEP " + i + ": " + steps[i].destinations());
                         }
 
-//start the AR when all information receiving is complete
+                        //start the AR when all information receiving is complete
                         Configure_AR();
 
                     }
@@ -402,7 +410,7 @@ signObject.setName("Right");
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
-//All of this to get the current location of the device
+        //All of this to get the current location of the device
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
@@ -433,7 +441,7 @@ signObject.setName("Right");
     }
 
     /**
-     *
+     * Request the current location of the device
      * @return the requested location of the device
      */
     protected LocationRequest createLocationRequest() {
@@ -445,14 +453,12 @@ signObject.setName("Right");
     }
 
     /**
-     * start refreshing the current location of the device so when the user moves, the location updates
+     * start refreshing the current location of the device so when the user moves, the location update is requested
      */
     protected void startLocationUpdates() {
         try {
             LocationServices.FusedLocationApi.requestLocationUpdates(
                     mGoogleApiClient, createLocationRequest(), this);
-
-
 
 
         } catch (SecurityException e) {
@@ -471,17 +477,43 @@ signObject.setName("Right");
 
     }
 
+    /**
+     * updates the center location of the Beyondar world when the location of the device updates and change
+     * @param location
+     */
     @Override
     public void onLocationChanged(Location location) {
-//also updates the center location of the Beyondar world when the location of the device updates
+
         if (world != null) {
             world.setGeoPosition(location.getLatitude(), location.getLongitude());
 
-            if(LocationUtils.distance(destll.latitude(),location.getLatitude(),destll.longitude(), location.getLongitude(), 0,0) < 50){
-                Button poibtn = findViewById(R.id.poi_btn);
+            //check if the distance between the user and the destination is less than 200M
+            Button poibtn = findViewById(R.id.poi_btn);
+            if (LocationUtils.distance(destll.latitude(), location.getLatitude(), destll.longitude(), location.getLongitude(), 0, 0) < 50 && poibtn.getVisibility() == View.INVISIBLE) {
+
                 poibtn.setVisibility(View.VISIBLE);
+                final Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
+                // Use bounce interpolator with amplitude 0.2 and frequency 20
+                MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
+                myAnim.setInterpolator(interpolator);
+                poibtn.startAnimation(myAnim);
             }
 
+        }
+    }
+
+    class MyBounceInterpolator implements android.view.animation.Interpolator {
+        private double mAmplitude = 1;
+        private double mFrequency = 10;
+
+        MyBounceInterpolator(double amplitude, double frequency) {
+            mAmplitude = amplitude;
+            mFrequency = frequency;
+        }
+
+        public float getInterpolation(float time) {
+            return (float) (-1 * Math.pow(Math.E, -time / mAmplitude) *
+                    Math.cos(mFrequency * time) + 1);
         }
     }
 }

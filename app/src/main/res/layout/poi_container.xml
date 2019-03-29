@@ -13,7 +13,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:background="@drawable/card_border_poi_container"
-            android:backgroundTint="#FFFFFFFF"
+            android:backgroundTint="#000"
             android:orientation="vertical"
             android:padding="6dp">
 
@@ -30,8 +30,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:maxWidth="300dp"
-                android:text="college of business"
-                android:textColor="#6d0f96"
+                android:text="College name"
+                android:textColor="#FFF"
                 android:textSize="16dp" />
 
             <TextView
@@ -41,7 +41,7 @@
                 android:layout_gravity="center_horizontal"
                 android:maxLength="7"
                 android:text="DIST"
-                android:textColor="#5d0074" />
+                android:textColor="#FFF" />
 
             <TextView
                 android:id="@+id/poi_container_info"

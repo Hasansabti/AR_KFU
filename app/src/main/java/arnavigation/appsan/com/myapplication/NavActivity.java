@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -128,6 +129,10 @@ public class NavActivity extends AppCompatActivity implements GoogleApiClient.Co
         navStartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ProgressBar pb = findViewById(R.id.navloading);
+                pb.setVisibility(View.VISIBLE);
+                navStartBtn.setVisibility(View.GONE);
+
                 Intent intent = new Intent(NavActivity.this, ArCamActivity.class);
 
                 try {
