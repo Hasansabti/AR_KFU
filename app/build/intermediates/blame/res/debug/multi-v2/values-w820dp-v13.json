@@ -1,16 +1,16 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\AR_Navigation-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
+            "outputFile": "D:\\Android\\AR_KFU\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
             "map": [
                 {
-                    "source": "D:\\AR_Navigation-master\\app\\src\\main\\res\\values-w820dp\\dimens.xml",
+                    "source": "D:\\Android\\AR_KFU\\app\\src\\main\\res\\values-w820dp\\dimens.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "4",
-                        "startOffsets": "291",
+                        "startOffsets": "295",
                         "endColumns": "57",
-                        "endOffsets": "344"
+                        "endOffsets": "348"
                     },
                     "to": {
                         "startLines": "2",
