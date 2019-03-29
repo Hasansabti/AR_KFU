@@ -27,8 +27,8 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.GoogleMap;
 
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
+
+
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -38,6 +38,10 @@ import com.mapbox.api.geocoding.v5.models.CarmenFeature;
 import com.mapbox.api.geocoding.v5.models.GeocodingResponse;
 import com.mapbox.geojson.Point;
 import com.mapbox.mapboxsdk.Mapbox;
+import com.mapbox.mapboxsdk.camera.CameraPosition;
+import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
+import com.mapbox.mapboxsdk.geometry.LatLng;
+import com.mapbox.mapboxsdk.geometry.LatLngBounds;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
@@ -63,7 +67,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     boolean isFirstStart;
 
     private GoogleApiClient googleApiClient;
-    private GoogleMap mMap;
+    private MapboxMap mMap;
 
   //  private Location location;
 
@@ -82,6 +86,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @BindView(R.id.progressBar_maps)
     ProgressBar progressBar;
 
+          //  mMap.setLatLngBoundsForCameraTarget(new LatLngBounds(new LatLng(25.327515, 49.598666), new LatLng(25.347917, 49.600547)));
+    //restrict the map to only show KFU
+            private static final LatLng BOUND_CORNER_NW = new LatLng(25.327515, 49.598666);
+            private static final LatLng BOUND_CORNER_SE = new LatLng(25.347917, 49.600547);
+            private static final LatLngBounds RESTRICTED_BOUNDS_AREA = new LatLngBounds.Builder()
+                    .include(BOUND_CORNER_NW)
+                    .include(BOUND_CORNER_SE)
+                    .build();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -249,7 +261,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //initialize mapbox API
         MapboxGeocoding reverseGeocode = MapboxGeocoding.builder()
                 .accessToken(getString(R.string.mapbox_access_token))
-                .query(Point.fromLngLat(latlng.longitude, latlng.latitude))
+                .query(Point.fromLngLat(latlng.getLongitude(), latlng.getLatitude()))
                 .geocodingTypes(GeocodingCriteria.TYPE_POI)
                 .mode(GeocodingCriteria.MODE_PLACES)
                 .build();
@@ -389,9 +401,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(MapboxMap mapboxMap) {
-        mapboxMap.setStyle(new Style.Builder().fromUrl("mapbox://styles/hasbti/cjsczomgr06cc1fpqub3v4j2c"), new Style.OnStyleLoaded() {
+this.mMap = mapboxMap;
+        mapboxMap.setStyle(new Style.Builder().fromUrl("mapbox://styles/hasbti/cjtty56bv02pw1fl3iquuawzu"), new Style.OnStyleLoaded() {
             @Override
             public void onStyleLoaded(@NonNull Style style) {
+                mMap.setLatLngBoundsForCameraTarget(RESTRICTED_BOUNDS_AREA);
+// Set the minimum zoom level of the map camera
+                mMap.setMinZoomPreference(10);
+                CameraPosition position = new CameraPosition.Builder()
+                        .target(new LatLng(25.336865, 49.598618))
+                        .zoom(15)
+                        .tilt(30)
+
+                        .build();
+                mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 100);
+
 
 
             }
