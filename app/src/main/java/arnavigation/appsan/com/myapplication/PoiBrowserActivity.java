@@ -142,7 +142,7 @@ public class PoiBrowserActivity extends AppCompatActivity {
 
 
                                                 double alpha = 0;
-                                                alpha = map(node.getDistance(), 0, 1000, 1, 0);
+                                                alpha = map(node.getDistance(), 0, 100, 1, 0);
                                                 if (alpha <= 1 && alpha >= 0)
                                                     eView.setAlpha((float) alpha);
 
