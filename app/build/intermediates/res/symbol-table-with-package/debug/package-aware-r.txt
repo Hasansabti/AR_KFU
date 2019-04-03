@@ -1647,12 +1647,15 @@ id all
 id always
 id amu_text
 id ar_cam_fragment
+id ar_cam_fragment2
 id ar_dir_distance
 id ar_dir_time
 id ar_nav_btn
 id ar_scene_view
 id ar_source_dest
+id ar_source_dest2
 id ar_view
+id ar_view2
 id arcam_layout
 id arrivalTimeText
 id async
@@ -1865,6 +1868,7 @@ id poi_place_image
 id poi_place_maps_direction
 id poi_place_name
 id poiloading
+id poiloading2
 id progressBar_maps
 id progress_bar_place
 id progress_circular

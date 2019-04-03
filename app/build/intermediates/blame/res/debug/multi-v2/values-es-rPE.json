@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Android\\AR_KFU\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-es-rPE\\values-es-rPE.xml",
+            "outputFile": "D:\\AR_Navigation-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-es-rPE\\values-es-rPE.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Hassan\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.6.0.aar\\10f7d3148b3c5956f0130a1f30aeb6a3\\res\\values-es-rPE\\values.xml",
+                    "source": "C:\\Users\\student\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.6.0.aar\\af7a08837d2be964f20d87921dce9cbf\\res\\values-es-rPE\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8",
                         "startColumns": "0,0,0,0,0",

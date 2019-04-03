@@ -133,7 +133,7 @@ public class NavActivity extends AppCompatActivity implements GoogleApiClient.Co
                 pb.setVisibility(View.VISIBLE);
                 navStartBtn.setVisibility(View.GONE);
 
-                Intent intent = new Intent(NavActivity.this, ArCamActivity.class);
+                Intent intent = new Intent(NavActivity.this, PoiBrowserActivity.class);
 
                 try {
                     intent.putExtra("SRC", sourceResultText.getText());

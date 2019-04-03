@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.wooplr:Spotlight:1.2.3@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/Spotlight-1.2.3.aar/be5bf1689bded575b81b938f93cf8edf/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/Spotlight-1.2.3.aar/be5bf1689bded575b81b938f93cf8edf/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/Spotlight-1.2.3.aar/f9a982b7b0b318eef138b2b3bb25a47b/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/Spotlight-1.2.3.aar/f9a982b7b0b318eef138b2b3bb25a47b/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

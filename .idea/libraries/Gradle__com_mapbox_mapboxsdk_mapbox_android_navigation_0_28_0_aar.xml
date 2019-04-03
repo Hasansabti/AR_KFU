@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.mapbox.mapboxsdk:mapbox-android-navigation:0.28.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-0.28.0.aar/64c1a6bed330c04970ac9d693d6c4a9a/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-0.28.0.aar/25b3bd6990bb75bfef11d4705cf08aab/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-0.28.0.aar/64c1a6bed330c04970ac9d693d6c4a9a/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-0.28.0.aar/64c1a6bed330c04970ac9d693d6c4a9a/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-0.28.0.aar/25b3bd6990bb75bfef11d4705cf08aab/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-0.28.0.aar/25b3bd6990bb75bfef11d4705cf08aab/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

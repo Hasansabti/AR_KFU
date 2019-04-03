@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.appoly:ARCore-Location:1.0.5@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ARCore-Location-1.0.5.aar/1d95d7971e00543290a074c400b6f507/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ARCore-Location-1.0.5.aar/1d95d7971e00543290a074c400b6f507/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ARCore-Location-1.0.5.aar/5e19f85fce96d10864a19346ac794ec8/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ARCore-Location-1.0.5.aar/5e19f85fce96d10864a19346ac794ec8/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -95,7 +95,7 @@ public class ArFragmentSupport extends Fragment implements FpsUpdatable,OnClickL
 
         mBeyondarCameraView = createCameraView();
 
-        mMainLayout.addView(mBeyondarCameraView, params);
+     //   mMainLayout.addView(mBeyondarCameraView, params);
         mMainLayout.addView(mBeyondarGLSurface, params);
 
         mBeyondarGLSurface.setMaxDistanceToRender(1000f);
@@ -189,7 +189,7 @@ public class ArFragmentSupport extends Fragment implements FpsUpdatable,OnClickL
     @Override
     public void onResume() {
         super.onResume();
-        mBeyondarCameraView.startPreviewCamera();
+       // mBeyondarCameraView.startPreviewCamera();
         mBeyondarGLSurface.onResume();
         BeyondarSensorManager.resume(mSensorManager);
         if (mWorld != null) {
