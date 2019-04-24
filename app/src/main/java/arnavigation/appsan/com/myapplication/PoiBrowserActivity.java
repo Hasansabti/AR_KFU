@@ -20,7 +20,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -142,19 +141,31 @@ public class PoiBrowserActivity extends AppCompatActivity implements GoogleApiCl
         myac = this;
 
         //Points with coordinates taken from Google maps
-        pois.add(new MyMarker(49.59915161132813,
-                25.33689909204587, "College of Business", "this is the college of business", this));
-
-        pois.add(new MyMarker(49.59991872310639,
-                25.334644565363995, "CCSIT", "This is the college of computer science and information technology in KFU. There are three departments: Computer Science,Information System,Computer Network", this));
+       // pois.add(new MyMarker(49.599270,
+        //        25.337279, "College of Business", "College of Business Administration was established in the academic year 1984 in the College of Planning and Administrative Sciences", this));
+//49.59915161132813
+        //25.33689909204587
+        //25.337370
+        pois.add(new MyMarker(49.600150,
+                25.335154, "CCSIT", "This is the college of computer science and information technology in KFU. There are three departments: Computer Science,Information System,Computer Network", this));
+//
+        //25.335013     49.600114
 
         pois.add(new MyMarker(49.59763884544373,
                 25.338707531475805, "Cafeteria", "This is the cafeteria", this));
-//
+//25.335095
+        //49.599875
 
-        pois.add(new MyMarker(49.59763884544373,
-                25.338707531475805, "College of science", "this is the college of science", this));
+        pois.add(new MyMarker(49.597804,
+                25.336564, "College of science", "The Faculty of Science was established on 12 June 2002 with four academic departments: Life Sciences, Chemistry, Physics, Mathematics and Statistics.", this));
+        pois.add(new MyMarker(49.597685,
+                25.337975, "College of Education", "College of Education was established in 1401, and the principle target of establishing college is to meet needs of eastern area from educational teachers", this));
+        pois.add(new MyMarker(49.599595,
+                25.346862, "College of Medicine", "College of Medicine in Al-Ahsa was established by Royal Decree No.7/B/15252 dated 18/11/1421 H ", this));
+        pois.add(new MyMarker(49.594231,
+                25.344999, "College of Arts", "Faculty of Arts one of the newest university colleges, its opening was approved on 10/7/1429 H ", this));
 
+        //
         // Set an update listener on the Scene that will hide the loading message once a Plane is
         // detected.
         arSceneView
@@ -179,7 +190,7 @@ public class PoiBrowserActivity extends AppCompatActivity implements GoogleApiCl
                                 for (final MyMarker m : pois) {
 
                                     LocationMarker lm = new LocationMarker(m.getLonge(), m.getLat(), m.getTheView(getApplicationContext()));
-                                   lm.setOnlyRenderWhenWithin(200);
+                                   lm.setOnlyRenderWhenWithin(150);
 
                                     if (m.getLayoutRenderable() != null)
                                         m.getLayoutRenderable().getView().setOnClickListener(new View.OnClickListener() {
@@ -211,7 +222,7 @@ public class PoiBrowserActivity extends AppCompatActivity implements GoogleApiCl
                                                 //info.setText(m.getInfo());
                                                 title.setText(m.getTitle());
 
-                                                distanceTextView.setText(node.getDistance()/3.28084 + "M");
+                                                distanceTextView.setText(node.getDistance()/3.2 + "M");
 
 
                                                 double alpha = 0;
@@ -243,7 +254,7 @@ public class PoiBrowserActivity extends AppCompatActivity implements GoogleApiCl
                                 if(loc.currentBestLocation.distanceTo(lastloc.currentBestLocation) > 20){
 
                                  float bear = loc.currentBestLocation.bearingTo(lastloc.currentBestLocation);
-                                 //TODO adjust bearing here
+                                 //
                                     //locationScene.setBearingAdjustment();
 
 
@@ -490,7 +501,7 @@ public class PoiBrowserActivity extends AppCompatActivity implements GoogleApiCl
 
         Log.d(TAG, "Configure_AR: LOCATION" + mLastLocation.getLatitude() + " " + mLastLocation.getLongitude());
         //set default arrow image
-        world.setDefaultImage(R.drawable.arright);
+  // remove the default       //world.setDefaultImage(R.drawable.ar_forward);
 
         //Select the AR fragment from the interface
         arFragmentSupport = (ArFragmentSupport) getSupportFragmentManager().findFragmentById(
@@ -498,7 +509,7 @@ public class PoiBrowserActivity extends AppCompatActivity implements GoogleApiCl
 
 
         Log.d(TAG, "Configure_AR: STEP.LENGTH:" + steps.length);
-        //TODO The given below is for rendering MAJOR STEPS LOCATIONS
+
         for (int i = 0; i < steps.length; i++) {
             //Add the path point locations taken from mapbox the the polylines array
             ArrayList<LatLng> locs = new ArrayList<>();
@@ -522,7 +533,7 @@ public class PoiBrowserActivity extends AppCompatActivity implements GoogleApiCl
             }
 
             //if the point is the last point on the path
-            if (i == steps.length - 1) {
+            else if (i == steps.length - 1) {
                 GeoObject signObject = new GeoObject(10000 + i);
                 signObject.setImageResource(R.drawable.dest_icon);
                 //calculate the location of the last point of the path
@@ -538,7 +549,7 @@ public class PoiBrowserActivity extends AppCompatActivity implements GoogleApiCl
 
 
             //if the instruction is telling to turn right, display an arrow that is pointing right
-            if (instructions.contains("right")) {
+            else if (instructions.contains("right")) {
                 Log.d(TAG, "Configure_AR: " + instructions);
                 GeoObject signObject = new GeoObject(10000 + i);
                 signObject.setName("Right");
@@ -568,21 +579,15 @@ public class PoiBrowserActivity extends AppCompatActivity implements GoogleApiCl
         for (int j = 0; j < polylineLatLng.size(); j++) {
             for (int k = 0; k < polylineLatLng.get(j).size(); k++) {
                 GeoObject polyGeoObj = new GeoObject(1000 + temp_polycount++);
-                int pointing = R.drawable.arleft;
-                int pointing2 = R.drawable.arleft;
+                int pointing = R.drawable.empty;
+                int pointing2 = R.drawable.empty;
 
                 polyGeoObj.setGeoPosition(polylineLatLng.get(j).get(k).latitude,
                         polylineLatLng.get(j).get(k).longitude);
                 polyGeoObj.setImageResource(pointing);
                 polyGeoObj.setName("arObj" + j + k);
 
-                /*
-                To fill the gaps between the Poly objects as AR Objects in the AR View , add some more
-                AR Objects which are equally spaced and provide a continuous AR Object path along the route
 
-                Haversine formula , Bearing Calculation and formula to find
-                Destination point given distance and bearing from start point is used .
-                 */
 
                 try {
 
@@ -594,13 +599,13 @@ public class PoiBrowserActivity extends AppCompatActivity implements GoogleApiCl
                     //Log.d(TAG, "Configure_AR: polyLineLatLng("+j+","+k+")="+polylineLatLng.get(j).get(k).latitude+","+polylineLatLng.get(j).get(k).longitude);
                     //Log.d(TAG, "Configure_AR: polyLineLatLng("+j+","+(k+1)+")="+polylineLatLng.get(j).get(k+1).latitude+","+polylineLatLng.get(j).get(k+1).longitude);
 
-                    //Check if distance between polyobjects is greater than twice the amount of space
-                    // intended , here it is (3*2)=6 .
-                    if (dist > 6) {
 
+
+                    if (dist > 12) {
+                       // Log.d(TAG, "dist : "+ dist);
                         //Initialize count of ar objects to be added
-                        int arObj_count = ((int) dist / 3) - 1;
-
+                        int arObj_count = ((int) dist / 6) ;
+                       // Log.d(TAG, "AR count : "+arObj_count);
                         //Log.d(TAG, "Configure_AR: Dist:" + dist + " # No of Objects: " + arObj_count + "\n --------");
 
                         double bearing = LocationCalc.calcBearing(polylineLatLng.get(j).get(k).latitude,
@@ -615,11 +620,11 @@ public class PoiBrowserActivity extends AppCompatActivity implements GoogleApiCl
 
                         LatLng tempLatLng = SphericalUtil.computeOffset(new LatLng(polylineLatLng.get(j).get(k).latitude,
                                         polylineLatLng.get(j).get(k).longitude)
-                                , 3f
+                                , 6f
                                 , heading);
 
                         //The distance to be incremented
-                        double increment_dist = 3f;
+                        double increment_dist = 6f;
 
                         for (int i = 0; i < arObj_count; i++) {
                             GeoObject inter_polyGeoObj = new GeoObject(5000 + temp_inter_polycount++);
@@ -627,7 +632,7 @@ public class PoiBrowserActivity extends AppCompatActivity implements GoogleApiCl
                             //Store the Lat,Lng details into new LatLng Objects using the functions
                             //in LocationCalc class.
                             if (i > 0 && k < polylineLatLng.get(j).size()) {
-                                increment_dist += 3f;
+                                increment_dist += 6f;
 
                                 tempLatLng = SphericalUtil.computeOffset(new LatLng(polylineLatLng.get(j).get(k).latitude,
                                                 polylineLatLng.get(j).get(k).longitude),
@@ -642,10 +647,8 @@ public class PoiBrowserActivity extends AppCompatActivity implements GoogleApiCl
                                         polylineLatLng.get(j).get(k + 1).latitude
                                         , polylineLatLng.get(j).get(k + 1).longitude));
                                 if (hdg >= 0) {
-                                    //TODO Heading to positive direction, show propper arrows pointing right
                                     pointing2 = R.drawable.arright;
                                 } else {
-                                    //TODO Heading to negative direction, show propper arrows pointing left
                                     pointing2 = R.drawable.arleft;
                                 }
                             }
@@ -727,14 +730,14 @@ public class PoiBrowserActivity extends AppCompatActivity implements GoogleApiCl
 
             //check if the distance between the user and the destination is less than 200M
             Button poibtn = findViewById(R.id.poi_btn);
-            if (LocationUtils.distance(destll.latitude(), location.getLatitude(), destll.longitude(), location.getLongitude(), 0, 0) < 50 && poibtn.getVisibility() == View.INVISIBLE) {
+            if (LocationUtils.distance(destll.latitude(), location.getLatitude(), destll.longitude(), location.getLongitude(), 0, 0) < 60 && poibtn.getVisibility() == View.INVISIBLE) {
 
-                poibtn.setVisibility(View.VISIBLE);
+               // poibtn.setVisibility(View.INVISIBLE);
                 final Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
                 // Use bounce interpolator with amplitude 0.2 and frequency 20
                 MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
                 myAnim.setInterpolator(interpolator);
-                poibtn.startAnimation(myAnim);
+                //poibtn.startAnimation(myAnim);
             }
 
         }

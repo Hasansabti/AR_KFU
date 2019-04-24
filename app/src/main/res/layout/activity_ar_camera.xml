@@ -54,6 +54,7 @@
             android:layout_height="0dp"
             android:layout_alignParentBottom="true"
             android:background="@drawable/cam_grad_bottom"
+            android:visibility="invisible"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView

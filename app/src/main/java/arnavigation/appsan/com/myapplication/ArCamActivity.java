@@ -14,16 +14,12 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.beyondar.android.opengl.texture.Texture;
 import com.beyondar.android.util.location.BeyondarLocationManager;
-
 import com.beyondar.android.world.GeoObject;
 import com.beyondar.android.world.World;
 import com.google.android.gms.common.ConnectionResult;
@@ -43,14 +39,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import arnavigation.appsan.com.myapplication.ar.ArFragmentSupport;
-import arnavigation.appsan.com.myapplication.ar.MyMarker;
 import arnavigation.appsan.com.myapplication.utils.LocationCalc;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import uk.co.appoly.arcorelocation.utils.LocationUtils;
 
 public class ArCamActivity extends FragmentActivity implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener, LocationListener {
@@ -95,7 +89,7 @@ public class ArCamActivity extends FragmentActivity implements GoogleApiClient.C
             @Override
             public void onClick(View v) {
                 ProgressBar bp = findViewById(R.id.poiloading);
-                bp.setVisibility(View.VISIBLE);
+              //  bp.setVisibility(View.VISIBLE);
                 Intent intent = new Intent(getApplicationContext(), PoiBrowserActivity.class);
                 startActivity(intent);
                 finish();
@@ -134,7 +128,7 @@ public class ArCamActivity extends FragmentActivity implements GoogleApiClient.C
 
         Log.d(TAG, "Configure_AR: LOCATION" + mLastLocation.getLatitude() + " " + mLastLocation.getLongitude());
         //set default arrow image
-        world.setDefaultImage(R.drawable.arright);
+        //world.setDefaultImage(R.drawable.ar_forward);
 
         //Select the AR fragment from the interface
         arFragmentSupport = (ArFragmentSupport) getSupportFragmentManager().findFragmentById(
@@ -203,6 +197,16 @@ public class ArCamActivity extends FragmentActivity implements GoogleApiClient.C
                 Log.d(TAG, "Configure_AR: LEFT SIGN:" + i);
 
             }
+            /*else{
+                Log.d(TAG, "Configure_AR: " + instructions);
+                GeoObject signObject = new GeoObject(10000 + i);
+                signObject.setName("forward");
+                signObject.setImageResource(R.drawable.ar_forward);
+                signObject.setGeoPosition(steps[i].intersections().get(0).location().latitude(), steps[i].intersections().get(0).location().longitude());
+                world.addBeyondarObject(signObject);
+                Log.d(TAG, "Configure_AR: LEFT SIGN:" + i);
+            }*/
+
         }
 
         int temp_polycount = 0;
@@ -212,12 +216,12 @@ public class ArCamActivity extends FragmentActivity implements GoogleApiClient.C
         for (int j = 0; j < polylineLatLng.size(); j++) {
             for (int k = 0; k < polylineLatLng.get(j).size(); k++) {
                 GeoObject polyGeoObj = new GeoObject(1000 + temp_polycount++);
-                int pointing = R.drawable.arleft;
-                int pointing2 = R.drawable.arleft;
+               // int pointing = R.drawable.ar_forward;
+              //  int pointing2 = R.drawable.ar_forward;
 
                 polyGeoObj.setGeoPosition(polylineLatLng.get(j).get(k).latitude,
                         polylineLatLng.get(j).get(k).longitude);
-                polyGeoObj.setImageResource(pointing);
+              //  polyGeoObj.setImageResource(pointing);
                 polyGeoObj.setName("arObj" + j + k);
 
                 /*
@@ -287,17 +291,17 @@ public class ArCamActivity extends FragmentActivity implements GoogleApiClient.C
                                         , polylineLatLng.get(j).get(k + 1).longitude));
                                 if (hdg >= 0) {
                                     //TODO Heading to positive direction, show propper arrows pointing right
-                                    pointing2 = R.drawable.arright;
+                              //      pointing2 = R.drawable.ar_forward;
                                 } else {
                                     //TODO Heading to negative direction, show propper arrows pointing left
-                                    pointing2 = R.drawable.arleft;
+                              //      pointing2 = R.drawable.ar_forward;
                                 }
                             }
 
 
                             //Set the Geoposition along with image and name
                             inter_polyGeoObj.setGeoPosition(tempLatLng.latitude, tempLatLng.longitude);
-                            inter_polyGeoObj.setImageResource(pointing2);
+                        //    inter_polyGeoObj.setImageResource(pointing2);
                         //    inter_polyGeoObj.setAngle(90,0,0);
 
                             inter_polyGeoObj.setName("inter_arObj" + j + k + i);
@@ -486,7 +490,7 @@ public class ArCamActivity extends FragmentActivity implements GoogleApiClient.C
 
         if (world != null) {
             world.setGeoPosition(location.getLatitude(), location.getLongitude());
-
+/*
             //check if the distance between the user and the destination is less than 200M
             Button poibtn = findViewById(R.id.poi_btn);
             if (LocationUtils.distance(destll.latitude(), location.getLatitude(), destll.longitude(), location.getLongitude(), 0, 0) < 50 && poibtn.getVisibility() == View.INVISIBLE) {
@@ -498,6 +502,7 @@ public class ArCamActivity extends FragmentActivity implements GoogleApiClient.C
                 myAnim.setInterpolator(interpolator);
                 poibtn.startAnimation(myAnim);
             }
+            */
 
         }
     }

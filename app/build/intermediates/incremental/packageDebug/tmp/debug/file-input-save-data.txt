@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Apr 03 19:05:45 AST 2019
+#Wed Apr 03 20:06:44 AST 2019
 17.baseType=DIRECTORY
 4.path=lib/x86/libarcore_sdk_jni.so
 22.set=NATIVE_RESOURCE

@@ -11,7 +11,7 @@
     <string name="slide1_desc">Welcome to ARMaps</string>
 
     <string name="slide2_title">Augmented Reality Maps</string>
-    <string name="slide2_desc">This app aims at developing a maps mobile application that uses Augmented Reality to enhance users experiences by implementing interactive maps in which 3D virtual objects areintegrated into real environment in real time.</string>
+    <string name="slide2_desc">This app aims at developing a maps mobile application that uses Augmented Reality to enhance users experiences by implementing interactive maps in which 3D virtual objects are integrated into real environment in real time.</string>
 
     <string name="slide3_title">Augmented Reality Point of Interest Browser</string>
     <string name="slide3_desc"> </string>

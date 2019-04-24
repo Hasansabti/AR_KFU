@@ -1419,6 +1419,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable dest_icon
 drawable directions
+drawable empty
 drawable fab_add
 drawable feedback_bottomsheet_background
 drawable feedback_progress_drawable
@@ -1518,6 +1519,7 @@ drawable indicator_dot_white
 drawable info
 drawable instruction_background
 drawable kfu
+drawable kfu1
 drawable magnify
 drawable map_default_map_marker
 drawable map_default_map_marker_shadow
@@ -1590,11 +1592,14 @@ drawable sceneform_plane
 drawable share
 drawable shopping
 drawable slide1
-drawable slide1bg
+drawable slide1bg1
 drawable slide2
 drawable slide2bg
+drawable slide2bg1
+drawable slide2bg11
 drawable slide3
 drawable slide31
+drawable slide3111
 drawable sound_chip_background
 drawable src_dest_bg
 drawable start
