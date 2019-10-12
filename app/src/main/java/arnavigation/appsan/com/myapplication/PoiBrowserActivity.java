@@ -579,8 +579,8 @@ public class PoiBrowserActivity extends AppCompatActivity implements GoogleApiCl
         for (int j = 0; j < polylineLatLng.size(); j++) {
             for (int k = 0; k < polylineLatLng.get(j).size(); k++) {
                 GeoObject polyGeoObj = new GeoObject(1000 + temp_polycount++);
-                int pointing = R.drawable.empty;
-                int pointing2 = R.drawable.empty;
+                int pointing = R.drawable.ic_exit_arrow_left;
+                int pointing2 = R.drawable.turn_right;
 
                 polyGeoObj.setGeoPosition(polylineLatLng.get(j).get(k).latitude,
                         polylineLatLng.get(j).get(k).longitude);
@@ -728,9 +728,9 @@ public class PoiBrowserActivity extends AppCompatActivity implements GoogleApiCl
         if (world != null) {
             world.setGeoPosition(location.getLatitude(), location.getLongitude());
 
-            //check if the distance between the user and the destination is less than 200M
+            //check if the distance between the user and the destination is less than 50feet
             Button poibtn = findViewById(R.id.poi_btn);
-            if (LocationUtils.distance(destll.latitude(), location.getLatitude(), destll.longitude(), location.getLongitude(), 0, 0) < 60 && poibtn.getVisibility() == View.INVISIBLE) {
+            if (LocationUtils.distance(destll.latitude(), location.getLatitude(), destll.longitude(), location.getLongitude(), 0, 0) < 50 && poibtn.getVisibility() == View.INVISIBLE) {
 
                // poibtn.setVisibility(View.INVISIBLE);
                 final Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);

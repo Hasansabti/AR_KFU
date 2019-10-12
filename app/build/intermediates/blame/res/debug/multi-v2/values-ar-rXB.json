@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\AR_Navigation-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ar-rXB\\values-ar-rXB.xml",
+            "outputFile": "D:\\Android\\arkfu2\\AR_KFU\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ar-rXB\\values-ar-rXB.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\student\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.6.0.aar\\af7a08837d2be964f20d87921dce9cbf\\res\\values-ar-rXB\\values.xml",
+                    "source": "C:\\Users\\Hassan\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.6.0.aar\\1b012e3e3cc635c7001bea89bc019eba\\res\\values-ar-rXB\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8",
                         "startColumns": "0,0,0,0,0",

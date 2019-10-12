@@ -45,8 +45,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
-        {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private final static String TAG = "MapsActivity";
 
@@ -56,7 +55,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private MapboxMap mMap;
 
-  //  private Location location;
+    //  private Location location;
 
     private Marker RevMarker;
     private MapView mapView;
@@ -73,14 +72,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @BindView(R.id.progressBar_maps)
     ProgressBar progressBar;
 
-          //  mMap.setLatLngBoundsForCameraTarget(new LatLngBounds(new LatLng(25.327515, 49.598666), new LatLng(25.347917, 49.600547)));
+    //  mMap.setLatLngBoundsForCameraTarget(new LatLngBounds(new LatLng(25.327515, 49.598666), new LatLng(25.347917, 49.600547)));
     //restrict the map to only show KFU
-            private static final LatLng BOUND_CORNER_NW = new LatLng(25.327515, 49.598666);
-            private static final LatLng BOUND_CORNER_SE = new LatLng(25.347917, 49.600547);
-            private static final LatLngBounds RESTRICTED_BOUNDS_AREA = new LatLngBounds.Builder()
-                    .include(BOUND_CORNER_NW)
-                    .include(BOUND_CORNER_SE)
-                    .build();
+    private static final LatLng BOUND_CORNER_NW = new LatLng(25.327515, 49.598666);
+    private static final LatLng BOUND_CORNER_SE = new LatLng(25.347917, 49.600547);
+    private static final LatLngBounds RESTRICTED_BOUNDS_AREA = new LatLngBounds.Builder()
+            .include(BOUND_CORNER_NW)
+            .include(BOUND_CORNER_SE)
+            .build();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,13 +110,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
         //initialize google API
-       // if (googleApiClient == null) {
+        // if (googleApiClient == null) {
         //    googleApiClient = new GoogleApiClient.Builder(this)
-       ////             .addApi(LocationServices.API)
+        ////             .addApi(LocationServices.API)
         //            .addConnectionCallbacks(this)
         //            .addOnConnectionFailedListener(this)
         //            .build();
-       // }
+        // }
 
 
         //Navigation button (Opens the select navigation mode where user selects the start and end locations)
@@ -159,17 +158,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         });
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-      //  SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-       //         .findFragmentById(R.id.map);
-      //  mapFragment.getMapAsync(this);
-
+        //  SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+        //         .findFragmentById(R.id.map);
+        //  mapFragment.getMapAsync(this);
 
 
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
-
-
 
 
     }
@@ -377,6 +373,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Rev_Geocode_Call(latLng);
     }
 */
+
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -388,7 +385,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(MapboxMap mapboxMap) {
-this.mMap = mapboxMap;
+        this.mMap = mapboxMap;
         mapboxMap.setStyle(new Style.Builder().fromUrl("mapbox://styles/hasbti/cjtty56bv02pw1fl3iquuawzu"), new Style.OnStyleLoaded() {
             @Override
             public void onStyleLoaded(@NonNull Style style) {
@@ -402,7 +399,6 @@ this.mMap = mapboxMap;
 
                         .build();
                 mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 100);
-
 
 
             }
@@ -436,14 +432,13 @@ this.mMap = mapboxMap;
         */
 
 
-
         Log.d(TAG, "onMapReady: MAP IS READY");
 
     }
 
     @Override
     protected void onStart() {
-       // googleApiClient.connect();
+        // googleApiClient.connect();
         mapView.onStart();
         super.onStart();
     }

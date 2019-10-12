@@ -1,27 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\AR_Navigation-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-id\\values-id.xml",
+            "outputFile": "D:\\Android\\arkfu2\\AR_KFU\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-id\\values-id.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\student\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.6.0.aar\\af7a08837d2be964f20d87921dce9cbf\\res\\values-id\\values.xml",
+                    "source": "C:\\Users\\Hassan\\.gradle\\caches\\transforms-1\\files-1.1\\mapbox-android-navigation-ui-0.42.0.aar\\d02a53069d09362fc6f9f891bce72b93\\res\\values-id\\values-id.xml",
                     "from": {
-                        "startLines": "4,5,6,7,8",
-                        "startColumns": "0,0,0,0,0",
-                        "startOffsets": "190,236,288,379,471",
-                        "endColumns": "45,51,90,91,62",
-                        "endOffsets": "235,287,378,470,533"
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,105,157",
+                        "endColumns": "49,51,52",
+                        "endOffsets": "100,152,205"
                     },
                     "to": {
-                        "startLines": "2,3,4,5,6",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "55,105,161,256,352",
-                        "endColumns": "49,55,94,95,66",
-                        "endOffsets": "100,156,251,347,414"
+                        "startLines": "8,9,10",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "477,527,579",
+                        "endColumns": "49,51,52",
+                        "endOffsets": "522,574,627"
                     }
                 },
                 {
-                    "source": "C:\\Users\\student\\.gradle\\caches\\transforms-1\\files-1.1\\mapbox-android-navigation-0.28.0.aar\\25b3bd6990bb75bfef11d4705cf08aab\\res\\values-id\\values-id.xml",
+                    "source": "C:\\Users\\Hassan\\.gradle\\caches\\transforms-1\\files-1.1\\mapbox-android-navigation-0.42.0.aar\\8725b698d630e0d7b3cc8e29dacd8543\\res\\values-id\\values-id.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -38,20 +38,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\student\\.gradle\\caches\\transforms-1\\files-1.1\\mapbox-android-navigation-ui-0.28.0.aar\\01e48ade39fb6cbdda18e10b4d9e2341\\res\\values-id\\values-id.xml",
+                    "source": "C:\\Users\\Hassan\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.6.0.aar\\1b012e3e3cc635c7001bea89bc019eba\\res\\values-id\\values.xml",
                     "from": {
-                        "startLines": "2,3,4",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "55,105,157",
-                        "endColumns": "49,51,52",
-                        "endOffsets": "100,152,205"
+                        "startLines": "4,5,6,7,8",
+                        "startColumns": "0,0,0,0,0",
+                        "startOffsets": "190,236,288,379,471",
+                        "endColumns": "45,51,90,91,62",
+                        "endOffsets": "235,287,378,470,533"
                     },
                     "to": {
-                        "startLines": "8,9,10",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "477,527,579",
-                        "endColumns": "49,51,52",
-                        "endOffsets": "522,574,627"
+                        "startLines": "2,3,4,5,6",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "55,105,161,256,352",
+                        "endColumns": "49,55,94,95,66",
+                        "endOffsets": "100,156,251,347,414"
                     }
                 }
             ]

@@ -135,8 +135,15 @@ public class ArCamActivity extends FragmentActivity implements GoogleApiClient.C
                 R.id.ar_cam_fragment);
 
 
+      //  GeoObject signObject = new GeoObject(10000 + 0);
+      //  signObject.setImageResource(R.drawable.start);
+      //  signObject.setGeoPosition(mLastLocation.getLatitude(), mLastLocation.getLongitude());
+       // world.addBeyondarObject(signObject);
+
         Log.d(TAG, "Configure_AR: STEP.LENGTH:" + steps.length);
         //TODO The given below is for rendering MAJOR STEPS LOCATIONS
+
+
         for (int i = 0; i < steps.length; i++) {
             //Add the path point locations taken from mapbox the the polylines array
             ArrayList<LatLng> locs = new ArrayList<>();
@@ -144,7 +151,7 @@ public class ArCamActivity extends FragmentActivity implements GoogleApiClient.C
                 locs.add(new LatLng(inst.location().latitude(), inst.location().longitude()));
             }
             polylineLatLng.add(i, locs);
-
+            Log.d(TAG, "Configure_AR: POINT:" + i +" LAt: " + steps[i].intersections().get(0).location().latitude() +" Long: "+steps[i].intersections().get(0).location().longitude());
             //Take the next instruction string (Example: turn left)
             String instructions = steps[i].maneuver().instruction();
 
@@ -216,12 +223,12 @@ public class ArCamActivity extends FragmentActivity implements GoogleApiClient.C
         for (int j = 0; j < polylineLatLng.size(); j++) {
             for (int k = 0; k < polylineLatLng.get(j).size(); k++) {
                 GeoObject polyGeoObj = new GeoObject(1000 + temp_polycount++);
-               // int pointing = R.drawable.ar_forward;
-              //  int pointing2 = R.drawable.ar_forward;
+                int pointing = R.drawable.arright;
+                int pointing2 = R.drawable.arleft;
 
                 polyGeoObj.setGeoPosition(polylineLatLng.get(j).get(k).latitude,
                         polylineLatLng.get(j).get(k).longitude);
-              //  polyGeoObj.setImageResource(pointing);
+                polyGeoObj.setImageResource(pointing);
                 polyGeoObj.setName("arObj" + j + k);
 
                 /*
@@ -291,17 +298,17 @@ public class ArCamActivity extends FragmentActivity implements GoogleApiClient.C
                                         , polylineLatLng.get(j).get(k + 1).longitude));
                                 if (hdg >= 0) {
                                     //TODO Heading to positive direction, show propper arrows pointing right
-                              //      pointing2 = R.drawable.ar_forward;
+                                    pointing2 = R.drawable.arleft;
                                 } else {
                                     //TODO Heading to negative direction, show propper arrows pointing left
-                              //      pointing2 = R.drawable.ar_forward;
+                                    pointing2 = R.drawable.arright;
                                 }
                             }
 
 
                             //Set the Geoposition along with image and name
                             inter_polyGeoObj.setGeoPosition(tempLatLng.latitude, tempLatLng.longitude);
-                        //    inter_polyGeoObj.setImageResource(pointing2);
+                            inter_polyGeoObj.setImageResource(pointing2);
                         //    inter_polyGeoObj.setAngle(90,0,0);
 
                             inter_polyGeoObj.setName("inter_arObj" + j + k + i);
@@ -414,7 +421,7 @@ public class ArCamActivity extends FragmentActivity implements GoogleApiClient.C
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
-        //All of this to get the current location of the device
+        //To initialize getting the current location of the device
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,

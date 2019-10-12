@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\AR_Navigation-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw720dp-v13\\values-sw720dp-v13.xml",
+            "outputFile": "D:\\Android\\arkfu2\\AR_KFU\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw720dp-v13\\values-sw720dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\student\\.gradle\\caches\\transforms-1\\files-1.1\\appintro-4.1.0.aar\\c9207a35b0716dbec8c965b55aa7f520\\res\\values-sw720dp-v13\\values-sw720dp-v13.xml",
+                    "source": "C:\\Users\\Hassan\\.gradle\\caches\\transforms-1\\files-1.1\\appintro-4.1.0.aar\\cd5d8aa7a451b48dfe567e985ace2464\\res\\values-sw720dp-v13\\values-sw720dp-v13.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

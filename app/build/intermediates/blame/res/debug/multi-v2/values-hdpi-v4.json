@@ -1,20 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\AR_Navigation-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
+            "outputFile": "D:\\Android\\arkfu2\\AR_KFU\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\student\\.gradle\\caches\\transforms-1\\files-1.1\\mapbox-android-navigation-ui-0.28.0.aar\\01e48ade39fb6cbdda18e10b4d9e2341\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,110",
-                        "endColumns": "54,47",
-                        "endOffsets": "105,153"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\student\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5bb21a48da11bd43c12feb06c5ce9622\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "source": "C:\\Users\\Hassan\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\0bc6ab07f938b2664e11378b6a9d1fcc\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -30,6 +20,16 @@
                         "endLines": "8",
                         "endColumns": "13",
                         "endOffsets": "430"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Hassan\\.gradle\\caches\\transforms-1\\files-1.1\\mapbox-android-navigation-ui-0.42.0.aar\\d02a53069d09362fc6f9f891bce72b93\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,110",
+                        "endColumns": "54,47",
+                        "endOffsets": "105,153"
                     }
                 }
             ]
